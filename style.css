@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height: 100%;
+    background-image: url("https://t3.ftcdn.net/jpg/02/49/68/72/360_F_249687268_Yl4AswCdwBQS7NA6hczKq0pfnjQs02UP.jpg");
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:  rgb(29, 122, 29);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none;
+}
+.score{
+    font-size: 4em;
+    margin-bottom: .5em;
+
+}
+.board{
+    height: 400px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 80px;
+}
+.hole{
+    background-color:rgb(165, 85,11);
+    border-radius: 50%;
+    box-shadow: inset 0 5px 0 6px rgb(53, 21, 6),
+                inset 0 20px 20px 15px rgba(0,0,0,.3);
+    position: relative;            
+    overflow: hidden;
+}
+.hole img{
+    width: 75%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom:0;
+    animation: rise .3s ease-out;
+
+}
+@keyframes rise{
+    0%{
+        transform: translateX(-50%) translateY(100%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+.cursor{
+    height: 100px;
+    width: 90px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image:url(assets/hammer.png);
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%);
+    transition: transform .1s;
+    pointer-events: none;
+}
+.cursor.active{
+    transform: translate(-20%, -20%) rotate(-45deg);
+}
